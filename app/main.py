@@ -24,9 +24,13 @@ aiplatform.init(
     credentials=my_credentials,
 )
 
+with open("service_account.json", encoding="utf-8") as f:
+    project_json = json.load(f)
+    project_id = project_json["project_id"]
+
 
 # Initialize Vertex AI with project and location
-vertexai.init(project="loyal-flames-391709", location="us-central1")
+vertexai.init(project=project_id, location="us-central1")
 
 # Initialize the FastAPI application
 app = FastAPI()

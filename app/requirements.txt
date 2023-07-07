@@ -16,10 +16,6 @@ googleapis-common-protos==1.59.1
 grpcio==1.56.0
 vertexai==0.0.1
 starlette==0.27.0
-
-
-
-
-
+google-cloud-aiplatform==1.27.1
 uvicorn==0.22.0
 

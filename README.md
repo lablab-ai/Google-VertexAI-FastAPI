@@ -38,23 +38,23 @@ service_account_info = {
 
 ```
 
+### Start the server and test
 
-**Thank you** for reading! If you enjoyed this tutorial you can find more and continue reading 
+Once you have installed the dependencies, you can start the server by running: `uvicorn main:app --reload --port 8080` in the `app` directory.
+When the server is running, you can test it by going to `http://localhost:8080/docs` in your browser. You should see the Swagger UI where you can test the endpoints.
+
+Good luck! and don't forget to star this repo if you like it!
+
+**Thank you** for reading! If you enjoyed this tutorial you can find more and continue reading
 [on our tutorial page](https://lablab.ai/t/)
 
 ---
 
 [![Artificial Intelligence Hackathons, tutorials and Boilerplates](https://storage.googleapis.com/lablab-static-eu/images/github/lablab-banner.jpg)](https://lablab.ai)
 
-
-
-
 ## Join the LabLab Discord
-
 
 ![Discord Banner 1](https://discordapp.com/api/guilds/877056448956346408/widget.png?style=banner1)  
 On lablab discord, we discuss this repo and many other topics related to artificial intelligence! Checkout upcoming [Artificial Intelligence Hackathons](https://lablab.ai) Event
 
-
 [![Acclerating innovation through acceleration](https://storage.googleapis.com/lablab-static-eu/images/github/nn-group-loggos.jpg)](https://newnative.ai)
-

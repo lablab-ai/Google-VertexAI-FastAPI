@@ -19,10 +19,14 @@ pip install -r requirements.txt
 
 In order to use the Vertex AI SDK, you will need to update the project auth using a serviceaccount
 
-In `main.py`, update the following code with your service account data that you obtained from the GCP console or through the lablab.ai platform.
+In `app`, folder create the file `service_account.json` and paste the content of your service account json file. Create the file if you don't have it by runnung the following command in your terminal:
+
+`touch service_account.json`
+
+In the file `service_account.json` paste the content of your service account json file. It should look like this:
 
 ```
-service_account_info = {
+{
     "type": "service_account",
     "project_id": "YOUR_PROJECT_ID",
     "private_key_id": "YOUR_PRIVATE_KEY_ID",
@@ -33,10 +37,11 @@ service_account_info = {
     "token_uri": "YOUR_TOKEN_URI",
     "auth_provider_x509_cert_url": "YOUR_AUTH_PROVIDER_X509_CERT_URL",
     "client_x509_cert_url": "YOUR_CLIENT_X509_CERT_URL",
-    "universe_domain": "YOUR_UNIVERSE_DOMAIN",
+    "universe_domain": "YOUR_UNIVERSE_DOMAIN"
 }
-
 ```
+
+You can find your service account json file in the Vertex AI console under `Settings > Service account` or you got it provided by lablab.ai (If you are part of the Google Vertex AI hackathon )
 
 ### Start the server and test
 

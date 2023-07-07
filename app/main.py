@@ -6,24 +6,14 @@ import google.cloud.aiplatform as aiplatform
 from vertexai.preview.language_models import ChatModel, InputOutputTextPair
 from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 import vertexai
-
+import json  # add this line
 
 # Load the service account json file
 # Update the values in the json file with your own
-service_account_info = {
-    "type": "service_account",
-    "project_id": "YOUR_PROJECT_ID",
-    "private_key_id": "YOUR_PRIVATE_KEY_ID",
-    "private_key": "YOUR_PRIVATE_KEY",
-    "client_email": "YOUR_CLIENT_EMAIL",
-    "client_id": "YOUR_CLIENT_ID",
-    "auth_uri": "YOUR_AUTH_URI",
-    "token_uri": "YOUR_TOKEN_URI",
-    "auth_provider_x509_cert_url": "YOUR_AUTH_PROVIDER_X509_CERT_URL",
-    "client_x509_cert_url": "YOUR_CLIENT_X509_CERT_URL",
-    "universe_domain": "YOUR_UNIVERSE_DOMAIN",
-}
-
+with open(
+    "service_account.json"
+) as f:  # replace 'serviceAccount.json' with the path to your file if necessary
+    service_account_info = json.load(f)
 
 my_credentials = service_account.Credentials.from_service_account_info(
     service_account_info
@@ -31,17 +21,14 @@ my_credentials = service_account.Credentials.from_service_account_info(
 
 # Initialize Google AI Platform with project details and credentials
 aiplatform.init(
-    project="loyal-flames-391709",
-    location="us-central1",
-    staging_bucket="gs://my_staging_bucket",
     credentials=my_credentials,
-    experiment="my-experiment",
-    experiment_description="my experiment description",
 )
+
 
 # Initialize Vertex AI with project and location
 vertexai.init(project="loyal-flames-391709", location="us-central1")
 
+# Initialize the FastAPI application
 app = FastAPI()
 
 # Configure CORS for the application

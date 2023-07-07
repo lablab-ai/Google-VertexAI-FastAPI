@@ -1,43 +1,39 @@
-Backend API for ALEX
+# Getting started with Vertex AI Generative AI
 
-To deploy new version
+## Before you begin
+
+This is a simple starter boilerplate that gives you a basic FastAPI setup with a few endpoints. It is meant to be used as a starting point for your own projects.
+
+### Clone and install dependencies
+
+In your terminal, run the following commands:
 
 ```
-gcloud functions deploy alice_function --source=. --trigger-http --region=europe-west2 --runtime=python38
-```
-## Running locally with Docker compose
-in root folder do   
-`docker-compose build`  
-`docker-compose up`
-
-
-## Running locally
-install uvicorn with `pip install uvicorn`  
-```
-uvicorn main:app --reload
+git clone git@github.com:lablab-ai/Google-VertexAI-FastAPI.git
+cd Google-VertexAI-FastAPI
+cd app
+pip install -r requirements.txt
 ```
 
-#### API Key
-`5IDgEcqRThMEWbZFUZ2kh4`
+### Update the project auth
 
-#### API Url
-https://alex-api-zclpkhrrea-nw.a.run.app
+In order to use the Vertex AI SDK, you will need to update the project auth using a serviceaccount
 
-#### API Docs
-https://alex-api-zclpkhrrea-nw.a.run.app/redoc
+In `main.py`, update the following code with your service account data that you obtained from the GCP console or through the lablab.ai platform.
 
-#### Swagger
-https://alex-api-zclpkhrrea-nw.a.run.app/docs
+```
+service_account_info = {
+    "type": "service_account",
+    "project_id": "YOUR_PROJECT_ID",
+    "private_key_id": "YOUR_PRIVATE_KEY_ID",
+    "private_key": "YOUR_PRIVATE_KEY",
+    "client_email": "YOUR_CLIENT_EMAIL",
+    "client_id": "YOUR_CLIENT_ID",
+    "auth_uri": "YOUR_AUTH_URI",
+    "token_uri": "YOUR_TOKEN_URI",
+    "auth_provider_x509_cert_url": "YOUR_AUTH_PROVIDER_X509_CERT_URL",
+    "client_x509_cert_url": "YOUR_CLIENT_X509_CERT_URL",
+    "universe_domain": "YOUR_UNIVERSE_DOMAIN",
+}
 
-
-## Publishing to AWS
-### Install/configure `kubectl` (once):
-https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
-https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
-### Build a Docker image:
-`docker build -t 681269368063.dkr.ecr.eu-north-1.amazonaws.com/alex-api .`
-### Push a Docker image:
-`docker push 681269368063.dkr.ecr.eu-north-1.amazonaws.com/alex-api`\
-(https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
-### Apply the k8s config:
-`kubectl apply -f kubernetes/config.yaml`
+```

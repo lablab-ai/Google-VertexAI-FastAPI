@@ -51,8 +51,6 @@ When the server is running, you can test it by going to `http://localhost:8080/d
 ![image](https://github.com/lablab-ai/Google-VertexAI-FastAPI/assets/2171273/13df1172-0b77-43f3-85a0-0bf936bbd8db)
 ![image](https://github.com/lablab-ai/Google-VertexAI-FastAPI/assets/2171273/e69f7892-6945-4d85-987e-dbbc23e553bd)
 
-
-
 Good luck! and don't forget to star this repo if you like it!
 
 **Thank you** for reading! If you enjoyed this tutorial you can find more and continue reading

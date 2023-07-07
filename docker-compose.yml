@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./app
+    command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./app:/usr/src/app
+      - /usr/src/app/pdf2jsonl/node_modules
+    ports:
+      - 8000:8000
+    environment:
+      - ENVIRONMENT=dev
+      - TESTING=0
+      - GOOGLE_APPLICATION_CREDENTIALS=/usr/src/app/serviceAccount.json

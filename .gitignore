@@ -2,3 +2,4 @@
 __pycache__
 app/pdf2jsonl/node_modules
 app/.DS_Store
+secrets.txt
